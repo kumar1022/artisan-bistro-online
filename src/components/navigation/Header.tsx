@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Coffee } from 'lucide-react';
+import { Menu, X, Coffee, User, ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/hooks/useAuth';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Menu', href: '/menu' },
     { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Contact', href: '/contact' },
+    { name: 'Gallery', href: '/gallery' }
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -47,11 +50,32 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex">
-            <Button variant="cafe" size="sm">
-              Order Online
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-2">
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/order">
+                <ShoppingCart className="h-4 w-4 mr-2" />
+                Order
+              </Link>
             </Button>
+            <Button variant="warm" size="sm" asChild>
+              <Link to="/reservations">Reserve Table</Link>
+            </Button>
+            {user ? (
+              <Button variant="ghost" size="sm" asChild>
+                <Link to="/account">
+                  <User className="h-4 w-4 mr-2" />
+                  Account
+                </Link>
+              </Button>
+            ) : (
+              <Button variant="ghost" size="sm" asChild>
+                <Link to="/auth">
+                  <User className="h-4 w-4 mr-2" />
+                  Sign In
+                </Link>
+              </Button>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -86,10 +110,31 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <div className="px-3 py-2">
-                <Button variant="cafe" size="sm" className="w-full">
-                  Order Online
+              <div className="px-3 py-2 space-y-3">
+                <Button variant="outline" className="w-full" asChild>
+                  <Link to="/order">
+                    <ShoppingCart className="h-4 w-4 mr-2" />
+                    Order Online
+                  </Link>
                 </Button>
+                <Button variant="warm" className="w-full" asChild>
+                  <Link to="/reservations">Reserve Table</Link>
+                </Button>
+                {user ? (
+                  <Button variant="ghost" className="w-full" asChild>
+                    <Link to="/account">
+                      <User className="h-4 w-4 mr-2" />
+                      My Account
+                    </Link>
+                  </Button>
+                ) : (
+                  <Button variant="ghost" className="w-full" asChild>
+                    <Link to="/auth">
+                      <User className="h-4 w-4 mr-2" />
+                      Sign In
+                    </Link>
+                  </Button>
+                )}
               </div>
             </div>
           </div>

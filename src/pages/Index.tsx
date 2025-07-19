@@ -76,11 +76,11 @@ const Index = () => {
                   Explore Our Menu <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="xl" className="bg-background/10 backdrop-blur-sm border-primary-foreground/30 text-primary-foreground hover:bg-background/20">
-                <Link to="/about">
-                  Our Story
-                </Link>
-              </Button>
+            <Button asChild variant="outline" size="xl" className="bg-background/10 backdrop-blur-sm border-primary-foreground/30 text-primary-foreground hover:bg-background/20">
+              <Link to="/reservations">
+                Book a Table
+              </Link>
+            </Button>
             </div>
           </div>
         </div>
@@ -166,8 +166,8 @@ const Index = () => {
 
           <div className="text-center mt-8">
             <Button asChild variant="warm" size="lg">
-              <Link to="/menu">
-                View Full Menu <ArrowRight className="ml-2 h-5 w-5" />
+              <Link to="/order">
+                Order Now <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>
