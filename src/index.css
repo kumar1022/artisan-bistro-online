@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Artisan Bistro Design System - Coffee-inspired warm palette */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Main brand colors - warm coffee tones */
+    --background: 42 25% 97%;
+    --foreground: 25 20% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 42 25% 97%;
+    --card-foreground: 25 20% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 42 25% 97%;
+    --popover-foreground: 25 20% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Coffee brown primary */
+    --primary: 25 35% 25%;
+    --primary-foreground: 42 25% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm cream secondary */
+    --secondary: 42 15% 88%;
+    --secondary-foreground: 25 35% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted coffee tones */
+    --muted: 42 15% 90%;
+    --muted-foreground: 25 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Rich coffee accent */
+    --accent: 30 25% 35%;
+    --accent-foreground: 42 25% 97%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 42 25% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 42 15% 85%;
+    --input: 42 15% 85%;
+    --ring: 25 35% 25%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom cafe colors */
+    --coffee-dark: 25 35% 20%;
+    --coffee-medium: 25 25% 35%;
+    --coffee-light: 30 20% 60%;
+    --cream: 42 25% 95%;
+    --gold: 45 90% 60%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--coffee-dark)), hsl(var(--coffee-medium)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--cream)), hsl(var(--secondary)));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--coffee-light)));
+    
+    /* Shadows */
+    --shadow-warm: 0 10px 30px -10px hsl(var(--coffee-medium) / 0.3);
+    --shadow-soft: 0 4px 15px -5px hsl(var(--coffee-medium) / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
